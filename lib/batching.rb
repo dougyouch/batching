@@ -12,6 +12,8 @@ module Batching
   end
 
   def in_batches(batch_size: 1_000)
+    return to_enum(:in_batches, batch_size: batch_size) unless block_given?
+
     batch = Batch.new
 
     process_batch_proc = proc do

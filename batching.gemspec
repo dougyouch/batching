@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'batching'
-  s.version     = '0.2.0'
+  s.version     = '0.3.0'
   s.licenses    = ['MIT']
   s.summary     = 'Batch processing'
   s.description = 'Adds an in_batches to Enumerable'

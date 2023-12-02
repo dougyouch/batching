@@ -33,5 +33,21 @@ describe Batching do
       expect(start_indexes).to eq([0, 3, 6])
       expect(end_indexes).to eq([2, 5, 7])
     end
+
+    describe 'to_enum' do
+      it 'process the first batch only' do
+        results = []
+        start_indexes = []
+        end_indexes = []
+        batch = batching.in_batches(batch_size: 3).first
+        results << batch.sum
+        start_indexes << batch.start_index
+        end_indexes << batch.end_index
+
+        expect(results).to eq([28])
+        expect(start_indexes).to eq([0])
+        expect(end_indexes).to eq([2])
+      end
+    end
   end
 end
